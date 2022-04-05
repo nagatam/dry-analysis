@@ -1,0 +1,29 @@
+#mac zsh下で事前準備の設定
+
+# homebrewのインストール
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 下記コマンドでアップデートする
+# ”Warning: Unbrewed” が出る場合は”rm -rf”で対処
+ brew doctor
+ brew update
+※解析の条件が変わってしまうことがあるので、一通りの解析が終わるまではアップデートしない
+
+# trash コマンドのインストール
+brew install trash
+
+# rm コマンドの代わりにtrash コマンドが動く設定
+echo “alias rm=trash” >> ~/.zshrc
+source ~/.zsh
+
+#  test
+echo > gomi.txt
+rm gomi.txt
+
+# Biocondaのインストール
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+sh Miniconda3-latest-MacOSX-x86_64.sh
+
+
+
+ 
